@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Pressable } from "react-native";
 import { Link, useLocalSearchParams } from "expo-router";
-import { CheckCircle } from "lucide-react-native";
+import { CheckCircle, Users } from "lucide-react-native";
 import { CHALLENGES } from "../types";
 
 export default function SuccessPage() {
@@ -14,7 +14,7 @@ export default function SuccessPage() {
         <Link href="/" asChild>
           <Pressable>
             <Text className="text-white font-bold text-lg">
-              THE VIBE CODER EXPERIMENT
+              VIBE CODING COLLECTIVE
             </Text>
           </Pressable>
         </Link>
@@ -26,7 +26,7 @@ export default function SuccessPage() {
           </Link>
           <Link href="/submit" asChild>
             <Pressable>
-              <Text className="text-indigo-400">Apply</Text>
+              <Text className="text-indigo-400">Join</Text>
             </Pressable>
           </Link>
         </View>
@@ -38,7 +38,7 @@ export default function SuccessPage() {
           <CheckCircle size={64} color="#22c55e" />
         </View>
 
-        <Text className="text-white text-3xl font-bold mb-4">VIBE SUBMITTED</Text>
+        <Text className="text-white text-3xl font-bold mb-4">YOU'RE IN THE QUEUE</Text>
 
         <Text className="text-slate-400 text-center mb-2">
           We've received your submission for:
@@ -64,26 +64,27 @@ export default function SuccessPage() {
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">1.</Text>
               <Text className="text-slate-300 flex-1">
-                We review your chat history / Loom
+                We watch your Loom and see how you think
               </Text>
             </View>
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">2.</Text>
               <Text className="text-slate-300 flex-1">
-                We watch your walkthrough and assess your thinking
+                We send you feedback (everyone gets feedback)
               </Text>
             </View>
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">3.</Text>
               <Text className="text-slate-300 flex-1">
-                You'll hear back within 5 days
+                If you're a fit, you're in the collective
               </Text>
             </View>
           </View>
 
-          <View className="mt-4 pt-4 border-t border-slate-700">
+          <View className="mt-4 pt-4 border-t border-slate-700 flex-row items-center gap-2">
+            <Users size={16} color="#64748b" />
             <Text className="text-slate-400 text-sm">
-              Every compelling submission gets personalized feedback.
+              Expect to hear back within a few days
             </Text>
           </View>
         </View>
@@ -92,7 +93,7 @@ export default function SuccessPage() {
         <Link href="/challenges" asChild>
           <Pressable className="bg-slate-800 px-6 py-3 rounded-xl">
             <Text className="text-indigo-400 font-semibold">
-              Submit Another Challenge
+              Try Another Challenge
             </Text>
           </Pressable>
         </Link>
@@ -101,7 +102,7 @@ export default function SuccessPage() {
       {/* Footer */}
       <View className="px-6 py-8 border-t border-slate-800">
         <Text className="text-slate-500 text-center text-sm">
-          The Vibe Coder Experiment © 2025
+          Vibe Coding Collective © 2025
         </Text>
       </View>
     </ScrollView>

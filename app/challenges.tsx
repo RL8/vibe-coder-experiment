@@ -37,7 +37,7 @@ export default function ChallengesPage() {
         <Link href="/" asChild>
           <Pressable>
             <Text className="text-white font-bold text-lg">
-              THE VIBE CODER EXPERIMENT
+              VIBE CODING COLLECTIVE
             </Text>
           </Pressable>
         </Link>
@@ -45,7 +45,7 @@ export default function ChallengesPage() {
           <Text className="text-white font-semibold">Challenges</Text>
           <Link href="/submit" asChild>
             <Pressable>
-              <Text className="text-indigo-400">Apply</Text>
+              <Text className="text-indigo-400">Join</Text>
             </Pressable>
           </Link>
         </View>
@@ -53,9 +53,9 @@ export default function ChallengesPage() {
 
       {/* Title */}
       <View className="px-6 py-8">
-        <Text className="text-white text-3xl font-bold mb-2">THE PLAYGROUND</Text>
+        <Text className="text-white text-3xl font-bold mb-2">PICK A CHALLENGE</Text>
         <Text className="text-slate-400">
-          Real businesses. Real problems. Pick one and show us how you think.
+          Complete one to join the collective. Show us how you think.
         </Text>
       </View>
 
@@ -150,7 +150,7 @@ export default function ChallengesPage() {
       {/* Footer */}
       <View className="px-6 py-8 border-t border-slate-800">
         <Text className="text-slate-500 text-center text-sm">
-          The Vibe Coder Experiment © 2025
+          Vibe Coding Collective © 2025
         </Text>
       </View>
     </ScrollView>

@@ -72,7 +72,7 @@ export default function SubmitPage() {
         <Link href="/" asChild>
           <Pressable>
             <Text className="text-white font-bold text-lg">
-              THE VIBE CODER EXPERIMENT
+              VIBE CODING COLLECTIVE
             </Text>
           </Pressable>
         </Link>
@@ -82,14 +82,17 @@ export default function SubmitPage() {
               <Text className="text-slate-400">Challenges</Text>
             </Pressable>
           </Link>
-          <Text className="text-white font-semibold">Apply</Text>
+          <Text className="text-white font-semibold">Join</Text>
         </View>
       </View>
 
       {/* Title */}
       <View className="px-6 py-8">
         <Text className="text-white text-3xl font-bold mb-2">
-          SUBMIT YOUR VIBE
+          JOIN THE COLLECTIVE
+        </Text>
+        <Text className="text-slate-400">
+          Show us how you think. Complete a challenge to get in.
         </Text>
       </View>
 
@@ -121,7 +124,7 @@ export default function SubmitPage() {
             <Pressable className="flex-1">
               <Text className="text-slate-400">
                 No challenge selected.{" "}
-                <Text className="text-indigo-400">Select one →</Text>
+                <Text className="text-indigo-400">Pick one →</Text>
               </Text>
             </Pressable>
           </Link>
@@ -156,21 +159,20 @@ export default function SubmitPage() {
       {/* Proof of Work */}
       <View className="mx-6 mb-6 bg-slate-800/50 p-6 rounded-2xl">
         <Text className="text-white font-bold text-lg mb-4">
-          YOUR PROOF OF WORK
+          SHOW YOUR WORK
         </Text>
 
         <Text className="text-slate-300 mb-2">Chat History Link</Text>
         <TextInput
           className="bg-slate-700 text-white p-4 rounded-xl mb-1"
-          placeholder="https://gemini.google.com/share/... or Claude link"
+          placeholder="https://gemini.google.com/share/... or any LLM"
           placeholderTextColor="#64748b"
           autoCapitalize="none"
           value={form.chatHistoryUrl}
           onChangeText={(text) => setForm({ ...form, chatHistoryUrl: text })}
         />
         <Text className="text-slate-500 text-sm mb-4">
-          ℹ️ Share your full conversation so we can see how you iterated
-          (optional if covered in Loom)
+          Optional if you walk through it in your Loom
         </Text>
 
         <Text className="text-slate-300 mb-2">Output/App Link</Text>
@@ -183,7 +185,7 @@ export default function SubmitPage() {
           onChangeText={(text) => setForm({ ...form, artifactUrl: text })}
         />
         <Text className="text-slate-500 text-sm mb-4">
-          ℹ️ Link to the functional result (HTML, script, prototype)
+          Link to what you built (HTML, script, prototype)
         </Text>
 
         <Text className="text-slate-300 mb-2">Loom Video *</Text>
@@ -196,22 +198,22 @@ export default function SubmitPage() {
           onChangeText={(text) => setForm({ ...form, videoUrl: text })}
         />
         <Text className="text-slate-500 text-sm">
-          ℹ️ Walk us through your thinking — why those prompts?
+          Walk us through your thinking — this is the important part
         </Text>
       </View>
 
       {/* Mindset Reflection */}
       <View className="mx-6 mb-6 bg-slate-800/50 p-6 rounded-2xl">
         <Text className="text-white font-bold text-lg mb-4">
-          MINDSET REFLECTION
+          YOUR APPROACH
         </Text>
 
         <Text className="text-slate-300 mb-2">
-          Explain your approach. What was your "architecture"? *
+          How did you tackle this? What was your thinking? *
         </Text>
         <TextInput
           className="bg-slate-700 text-white p-4 rounded-xl h-32"
-          placeholder="Describe how you approached this challenge..."
+          placeholder="Describe your approach..."
           placeholderTextColor="#64748b"
           multiline
           textAlignVertical="top"
@@ -240,7 +242,7 @@ export default function SubmitPage() {
             <ActivityIndicator color="white" />
           ) : (
             <Text className="text-white font-semibold text-lg">
-              SUBMIT YOUR VIBE →
+              SUBMIT & JOIN →
             </Text>
           )}
         </Pressable>
@@ -249,7 +251,7 @@ export default function SubmitPage() {
       {/* Footer */}
       <View className="px-6 py-8 border-t border-slate-800">
         <Text className="text-slate-500 text-center text-sm">
-          The Vibe Coder Experiment © 2025
+          Vibe Coding Collective © 2025
         </Text>
       </View>
     </ScrollView>

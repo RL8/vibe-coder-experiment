@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Pressable } from "react-native";
 import { Link } from "expo-router";
-import { Brain, Lightbulb, Rocket } from "lucide-react-native";
+import { Brain, Lightbulb, Rocket, Users } from "lucide-react-native";
 
 export default function LandingPage() {
   return (
@@ -8,7 +8,7 @@ export default function LandingPage() {
       {/* Header */}
       <View className="flex-row items-center justify-between px-6 py-4 border-b border-slate-800">
         <Text className="text-white font-bold text-lg">
-          THE VIBE CODER EXPERIMENT
+          VIBE CODING COLLECTIVE
         </Text>
         <View className="flex-row gap-4">
           <Link href="/challenges" asChild>
@@ -18,7 +18,7 @@ export default function LandingPage() {
           </Link>
           <Link href="/submit" asChild>
             <Pressable>
-              <Text className="text-indigo-400 hover:text-indigo-300">Apply</Text>
+              <Text className="text-indigo-400 hover:text-indigo-300">Join</Text>
             </Pressable>
           </Link>
         </View>
@@ -26,26 +26,24 @@ export default function LandingPage() {
 
       {/* Hero */}
       <View className="px-6 py-20 items-center">
-        <Text className="text-slate-400 text-lg text-center mb-4">
-          "We aren't asking you to build
+        <Text className="text-indigo-400 text-sm font-semibold mb-4 tracking-widest">
+          JOIN THE COLLECTIVE
         </Text>
         <Text className="text-white text-3xl font-bold text-center mb-4">
-          the next Facebook.
+          Prove you can think.
         </Text>
-        <Text className="text-slate-400 text-lg text-center mb-2">
-          We're asking you to build a tool that helps
+        <Text className="text-white text-3xl font-bold text-center mb-6">
+          Build real software.
         </Text>
-        <Text className="text-slate-400 text-lg text-center mb-2">
-          a baker know how many croissants
-        </Text>
-        <Text className="text-indigo-400 text-lg text-center mb-8">
-          to load into a van at 4 AM."
+        <Text className="text-slate-400 text-lg text-center mb-8 max-w-md">
+          A community of prompt-first builders creating real tools for real
+          businesses. No CS degree required — just show us how your mind works.
         </Text>
 
         <Link href="/challenges" asChild>
           <Pressable className="bg-indigo-600 px-8 py-4 rounded-2xl">
             <Text className="text-white font-semibold text-lg">
-              View Challenges →
+              See The Challenges →
             </Text>
           </Pressable>
         </Link>
@@ -99,59 +97,72 @@ export default function LandingPage() {
         </View>
       </View>
 
-      {/* The Experiment */}
+      {/* The Collective */}
       <View className="px-6 py-12">
-        <Text className="text-white text-2xl font-bold mb-4">THE EXPERIMENT</Text>
+        <Text className="text-white text-2xl font-bold mb-4">THE COLLECTIVE</Text>
         <Text className="text-slate-400 mb-6">
-          This is a test. We believe prompt-first development is the future of
-          SME software. You'll work on real clients with a safety net:
+          More than a hiring platform — this is a community proving that
+          prompt-first builders can ship real software for real businesses.
         </Text>
 
         <View className="gap-3 mb-8">
           <Text className="text-slate-300">
-            ✓ Professional QA agency audits all code
+            ✓ Build a portfolio of deployed, validated projects
           </Text>
           <Text className="text-slate-300">
-            ✓ Standards you feed into your LLM sessions
+            ✓ Learn from peers — share prompts, patterns, and approaches
           </Text>
           <Text className="text-slate-300">
-            ✓ Real "boring businesses" that need real solutions
+            ✓ Get credibility through real usage, not certificates
+          </Text>
+          <Text className="text-slate-300">
+            ✓ Professional QA oversight on all projects
           </Text>
         </View>
 
-        {/* Engagement Options */}
+        {/* How to Join */}
         <View className="bg-slate-800 p-6 rounded-2xl">
           <Text className="text-white font-bold text-lg mb-4">
-            ENGAGEMENT OPTIONS
+            HOW TO JOIN
           </Text>
 
           <View className="gap-4">
             <View className="flex-row items-start gap-3">
-              <Text className="text-2xl">💼</Text>
+              <Text className="text-indigo-400 font-bold text-lg">1.</Text>
               <View className="flex-1">
-                <Text className="text-white font-semibold">PAID CONTRACT</Text>
+                <Text className="text-white font-semibold">Pick a challenge</Text>
                 <Text className="text-slate-400">
-                  $20-40/hr, project-based, path to hire
+                  Real problems from real businesses
                 </Text>
               </View>
             </View>
 
             <View className="flex-row items-start gap-3">
-              <Text className="text-2xl">📚</Text>
+              <Text className="text-indigo-400 font-bold text-lg">2.</Text>
               <View className="flex-1">
-                <Text className="text-white font-semibold">TRAINING</Text>
+                <Text className="text-white font-semibold">Build something</Text>
                 <Text className="text-slate-400">
-                  Learn on real clients, minimal pay
+                  Use any LLM — Gemini, Claude, ChatGPT
                 </Text>
               </View>
             </View>
 
             <View className="flex-row items-start gap-3">
-              <Text className="text-2xl">👁️</Text>
+              <Text className="text-indigo-400 font-bold text-lg">3.</Text>
               <View className="flex-1">
-                <Text className="text-white font-semibold">SPECTATOR</Text>
+                <Text className="text-white font-semibold">Show your thinking</Text>
                 <Text className="text-slate-400">
-                  Watch our process, learn to run your own
+                  Record a Loom walking through your approach
+                </Text>
+              </View>
+            </View>
+
+            <View className="flex-row items-start gap-3">
+              <Text className="text-indigo-400 font-bold text-lg">4.</Text>
+              <View className="flex-1">
+                <Text className="text-white font-semibold">Join the collective</Text>
+                <Text className="text-slate-400">
+                  Get feedback, collaborate, and grow
                 </Text>
               </View>
             </View>
@@ -159,8 +170,49 @@ export default function LandingPage() {
         </View>
       </View>
 
+      {/* Who This Is For */}
+      <View className="px-6 py-12 mx-6 bg-slate-800/50 rounded-3xl mb-12">
+        <View className="flex-row items-center gap-3 mb-4">
+          <Users size={28} color="#6366f1" />
+          <Text className="text-white text-2xl font-bold">WHO THIS IS FOR</Text>
+        </View>
+
+        <View className="gap-4">
+          <View>
+            <Text className="text-white font-semibold mb-1">
+              Curious problem-solvers
+            </Text>
+            <Text className="text-slate-400">
+              You don't need to code — you need to think clearly and prompt well
+            </Text>
+          </View>
+
+          <View>
+            <Text className="text-white font-semibold mb-1">
+              Industry experts
+            </Text>
+            <Text className="text-slate-400">
+              Your domain knowledge + basic prompting = more valuable than a dev
+              with no context
+            </Text>
+          </View>
+
+          <View>
+            <Text className="text-white font-semibold mb-1">
+              Not-quite-ready builders
+            </Text>
+            <Text className="text-slate-400">
+              If this feels hard, we can help you level up first
+            </Text>
+          </View>
+        </View>
+      </View>
+
       {/* CTA */}
       <View className="px-6 py-12 items-center">
+        <Text className="text-slate-400 text-center mb-4">
+          Ready to prove yourself?
+        </Text>
         <Link href="/challenges" asChild>
           <Pressable className="bg-indigo-600 px-8 py-4 rounded-2xl">
             <Text className="text-white font-semibold text-lg">
@@ -173,7 +225,7 @@ export default function LandingPage() {
       {/* Footer */}
       <View className="px-6 py-8 border-t border-slate-800">
         <Text className="text-slate-500 text-center text-sm">
-          The Vibe Coder Experiment © 2025
+          Vibe Coding Collective © 2025
         </Text>
       </View>
     </ScrollView>
