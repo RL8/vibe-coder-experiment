@@ -17,18 +17,15 @@ type Submission = {
   name: string;
   email: string;
   challenge_id: string;
-  chat_history_url: string | null;
-  artifact_url: string | null;
-  video_url: string;
-  logic_description: string;
-  status: "pending" | "reviewed" | "trial" | "hired" | "rejected";
+  evidence_url: string | null;
+  description: string | null;
+  status: "pending" | "reviewed" | "accepted" | "rejected";
 };
 
 const statusColors = {
   pending: "bg-yellow-900/50 text-yellow-300",
   reviewed: "bg-blue-900/50 text-blue-300",
-  trial: "bg-purple-900/50 text-purple-300",
-  hired: "bg-green-900/50 text-green-300",
+  accepted: "bg-green-900/50 text-green-300",
   rejected: "bg-red-900/50 text-red-300",
 };
 
@@ -102,7 +99,7 @@ export default function AdminPage() {
         className="px-6 mb-6"
       >
         <View className="flex-row gap-2">
-          {["all", "pending", "reviewed", "trial", "hired", "rejected"].map(
+          {["all", "pending", "reviewed", "accepted", "rejected"].map(
             (status) => (
               <Pressable
                 key={status}
@@ -169,45 +166,36 @@ export default function AdminPage() {
                   </View>
                 )}
 
-                {/* Links */}
-                <View className="flex-row gap-4 mb-4">
-                  {submission.chat_history_url && (
-                    <Pressable
-                      className="flex-row items-center gap-1"
-                      onPress={() =>
-                        window.open(submission.chat_history_url!, "_blank")
-                      }
-                    >
-                      <ExternalLink size={14} color="#6366f1" />
-                      <Text className="text-indigo-400 text-sm">Chat</Text>
-                    </Pressable>
-                  )}
-                  {submission.artifact_url && (
-                    <Pressable
-                      className="flex-row items-center gap-1"
-                      onPress={() =>
-                        window.open(submission.artifact_url!, "_blank")
-                      }
-                    >
-                      <ExternalLink size={14} color="#6366f1" />
-                      <Text className="text-indigo-400 text-sm">App</Text>
-                    </Pressable>
-                  )}
-                  <Pressable
-                    className="flex-row items-center gap-1"
-                    onPress={() => window.open(submission.video_url, "_blank")}
-                  >
-                    <ExternalLink size={14} color="#6366f1" />
-                    <Text className="text-indigo-400 text-sm">Loom</Text>
-                  </Pressable>
-                </View>
+                {/* Email */}
+                <Text className="text-slate-400 text-sm mb-3">
+                  {submission.email}
+                </Text>
 
-                {/* Logic Description */}
-                <View className="bg-slate-700/50 p-3 rounded-xl mb-4">
-                  <Text className="text-slate-300 text-sm" numberOfLines={3}>
-                    "{submission.logic_description}"
-                  </Text>
-                </View>
+                {/* Evidence Link */}
+                {submission.evidence_url && (
+                  <View className="mb-3">
+                    <Pressable
+                      className="flex-row items-center gap-1"
+                      onPress={() =>
+                        window.open(submission.evidence_url!, "_blank")
+                      }
+                    >
+                      <ExternalLink size={14} color="#6366f1" />
+                      <Text className="text-indigo-400 text-sm">
+                        View Evidence
+                      </Text>
+                    </Pressable>
+                  </View>
+                )}
+
+                {/* Description */}
+                {submission.description && (
+                  <View className="bg-slate-700/50 p-3 rounded-xl mb-4">
+                    <Text className="text-slate-300 text-sm">
+                      "{submission.description}"
+                    </Text>
+                  </View>
+                )}
 
                 {/* Actions */}
                 <View className="flex-row flex-wrap gap-2">
@@ -220,10 +208,10 @@ export default function AdminPage() {
                         <Text className="text-white text-sm">Mark Reviewed</Text>
                       </Pressable>
                       <Pressable
-                        className="bg-purple-600 px-4 py-2 rounded-lg"
-                        onPress={() => updateStatus(submission.id, "trial")}
+                        className="bg-green-600 px-4 py-2 rounded-lg"
+                        onPress={() => updateStatus(submission.id, "accepted")}
                       >
-                        <Text className="text-white text-sm">Start Trial</Text>
+                        <Text className="text-white text-sm">Accept</Text>
                       </Pressable>
                       <Pressable
                         className="bg-red-600/50 px-4 py-2 rounded-lg"
@@ -236,32 +224,16 @@ export default function AdminPage() {
                   {submission.status === "reviewed" && (
                     <>
                       <Pressable
-                        className="bg-purple-600 px-4 py-2 rounded-lg"
-                        onPress={() => updateStatus(submission.id, "trial")}
+                        className="bg-green-600 px-4 py-2 rounded-lg"
+                        onPress={() => updateStatus(submission.id, "accepted")}
                       >
-                        <Text className="text-white text-sm">Start Trial</Text>
+                        <Text className="text-white text-sm">Accept</Text>
                       </Pressable>
                       <Pressable
                         className="bg-red-600/50 px-4 py-2 rounded-lg"
                         onPress={() => updateStatus(submission.id, "rejected")}
                       >
                         <Text className="text-white text-sm">Reject</Text>
-                      </Pressable>
-                    </>
-                  )}
-                  {submission.status === "trial" && (
-                    <>
-                      <Pressable
-                        className="bg-green-600 px-4 py-2 rounded-lg"
-                        onPress={() => updateStatus(submission.id, "hired")}
-                      >
-                        <Text className="text-white text-sm">Mark Hired</Text>
-                      </Pressable>
-                      <Pressable
-                        className="bg-red-600/50 px-4 py-2 rounded-lg"
-                        onPress={() => updateStatus(submission.id, "rejected")}
-                      >
-                        <Text className="text-white text-sm">End Trial</Text>
                       </Pressable>
                     </>
                   )}

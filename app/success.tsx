@@ -40,8 +40,9 @@ export default function SuccessPage() {
 
         <Text className="text-white text-3xl font-bold mb-4">YOU'RE IN THE QUEUE</Text>
 
-        <Text className="text-slate-400 text-center mb-2">
-          We've received your submission for:
+        <Text className="text-slate-400 text-center mb-8">
+          We've received your submission
+          {selectedChallenge ? " for:" : "."}
         </Text>
         {selectedChallenge && (
           <View className="flex-row items-center gap-2 mb-8">
@@ -64,19 +65,19 @@ export default function SuccessPage() {
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">1.</Text>
               <Text className="text-slate-300 flex-1">
-                We watch your Loom and see how you think
+                We review your submission and see how you think
               </Text>
             </View>
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">2.</Text>
               <Text className="text-slate-300 flex-1">
-                We send you feedback (everyone gets feedback)
+                Everyone gets a response — no ghosting here
               </Text>
             </View>
             <View className="flex-row items-start gap-3">
               <Text className="text-indigo-400 font-bold">3.</Text>
               <Text className="text-slate-300 flex-1">
-                If you're a fit, you're in the collective
+                If you're a fit, welcome to the collective
               </Text>
             </View>
           </View>

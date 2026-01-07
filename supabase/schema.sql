@@ -1,18 +1,18 @@
--- Vibe Coder Experiment Database Schema
+-- Vibe Coding Collective Database Schema
 -- Run this in your Supabase SQL Editor
 
--- Submissions table
+-- Submissions table (simplified for lower barrier to entry)
 CREATE TABLE IF NOT EXISTS submissions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   name TEXT NOT NULL,
   email TEXT NOT NULL,
-  challenge_id TEXT NOT NULL,
-  chat_history_url TEXT,
-  artifact_url TEXT,
-  video_url TEXT NOT NULL,
-  logic_description TEXT NOT NULL,
-  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'reviewed', 'trial', 'hired', 'rejected'))
+  challenge_id TEXT DEFAULT 'general',
+  evidence_url TEXT,
+  description TEXT,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'reviewed', 'accepted', 'rejected')),
+  -- At least one of evidence_url or description must be provided
+  CONSTRAINT evidence_or_description CHECK (evidence_url IS NOT NULL OR description IS NOT NULL)
 );
 
 -- Challenges table (optional - can use static data instead)
